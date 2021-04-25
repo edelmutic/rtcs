@@ -52,8 +52,8 @@ const WebSocket = () => {
                         value={username}
                         onChange={e => setUsername(e.target.value)}
                         type="text"
-                        placeholder="Введите ваше имя" />
-                    <button onClick={connect}>Войти</button>
+                        placeholder="Please enter your name" />
+                    <button onClick={connect}>Enter</button>
                 </div>
             </div>
         )
@@ -65,14 +65,14 @@ const WebSocket = () => {
             <div>
                 <div className="form">
                     <input value={value} onChange={e => setValue(e.target.value)} type="text" />
-                    <button onClick={sendMessage}>Отправить</button>
+                    <button onClick={sendMessage}>Send</button>
                 </div>
                 <div className="messages">
                     {messages.map(mess =>
                         <div key={mess.id}>
                             {mess.event === 'connection'
                                 ? <div className="connection_message">
-                                    Пользователь {mess.username} подключился
+                                    User {mess.username} connected
                                 </div>
                                 : <div className="message">
                                     {mess.username}. {mess.message}
