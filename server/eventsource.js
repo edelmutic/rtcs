@@ -12,12 +12,12 @@ app.use(express.json());
 
 app.get('/connect', (req, res) => {
   res.writeHead(200, {
-    Connection: 'keep alive',
-    'Content type': 'text/event-stream',
-    'Cache-control': 'no-cache',
+    Connection: 'keep-alive',
+    'Content-Type': 'text/event-stream',
+    'Cache-Control': 'no-cache',
   });
   emitter.on('newMessage', (message) => {
-    res.write(message);
+    res.write(`data: ${JSON.stringify(message)} \n\n`);
   });
 });
 
